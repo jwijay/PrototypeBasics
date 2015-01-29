@@ -33,4 +33,38 @@
     return this.map(function(){return "ᶘ ᵒᴥᵒᶅ";});
   };
 
+  Array.prototype.first = function( n ) {
+    //if n is specified, return first n elements
+    if (n === undefined) {
+      return this[0];
+    } else {
+      return this.slice(0,n);
+    }
+  };
+
+  Array.prototype.max = function() {
+    //retrieve the maximum value of a collection
+    if (this.length > 0) {
+      return this.reduce(function(a, b) {
+        return a > b? a : b;
+      });  
+    } else {
+      return -Infinity;
+    }
+  };
+
+  Array.prototype.min = function () {
+    if (this.length > 0) {
+      return this.reduce(function(a, b) {
+        return a < b? a : b;
+      });  
+    } else {
+      return Infinity;
+    }
+  };
+
+  Array.prototype.contains = function(target) {
+    return (this.indexOf(target) > -1);
+  };
+
 })();
