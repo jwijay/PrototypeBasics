@@ -42,4 +42,77 @@ describe("ArrayExtensions", function() {
     });
   }); //desc seals
 
+  describe("first", function() {
+    it("should be defined as a function", function(){
+      expect(Array.prototype.first).to.be.instanceof(Function);
+    });
+
+    it("should return the first element of the invoking array", function() {
+      var test_array = [1,2,3,4];
+      var result = test_array.first();
+
+      expect( result ).to.equal( 1 );
+    });
+
+    it("should return an array with the first n elements of the invoking array", function() {
+      var test_array = [1,2,3,4];
+      var result2 = test_array.first( 2 );
+      expect( result2 ).to.eql([1,2]);
+
+      var result3 = test_array.first( 3 );
+      expect( result3 ).to.eql( [1,2,3] );
+    });
+  }); //desc first
+
+  describe("max", function() {
+    it("should be defined as a function", function(){
+      expect(Array.prototype.max).to.be.instanceof(Function);
+    });
+
+    it("should return the maximum value of the invoking array", function() {
+      var test_array = [1,2,3,4];
+      var result2 = test_array.max();
+      expect( result2 ).to.equal(4);
+    });
+
+    it("should return -Infinity if the invoking array is empty", function() {
+      var test_array = [];
+      var result2 = test_array.max();
+      expect( result2 ).to.equal(-Infinity);
+    });
+  }); //desc max
+
+  describe("min", function() {
+    it("should be defined as a function", function(){
+      expect(Array.prototype.min).to.be.instanceof(Function);
+    });
+
+    it("should return the minimum value of the invoking array", function() {
+      var test_array = [1,2,3,4];
+      var result2 = test_array.min();
+      expect( result2 ).to.equal(1);
+    });
+
+    it("should return Infinity if the invoking array is empty", function() {
+      var test_array = [];
+      var result2 = test_array.min();
+      expect( result2 ).to.equal(Infinity);
+    });
+  }); //desc min
+
+  describe("contains", function() {
+    it("should be defined as a function", function(){
+      expect(Array.prototype.contains).to.be.instanceof(Function);
+    });
+
+    it("should return true if target is present in the invoking array, and false otherwise.", function() {
+      var test_array = [1,2,3];
+      var result = test_array.contains( 1 );
+      expect( result ).to.be.true();
+
+      var result2 = test_array.contains( 44 );
+      expect( result2 ).to.be.false();
+    });
+  }); //desc contains
+
 }); //desc ArrayExtensions
