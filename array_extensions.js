@@ -63,6 +63,66 @@
     }
   };
 
+  Array.prototype.intersection =  function() {
+    //need to convert the object of a variable num of arrays (arguments) into an array
+    var args = Array.prototype.slice.call(arguments);
+
+    //need to add invoking array to front of args (so we can check intersecting elements of the invoking array as well)
+    args.unshift(this);
+
+    var intersecting = args.reduce(function(arrayA,arrayB) {
+      var result = [];
+      for (var i = 0; i < arrayA.length; i++) {
+        //check if each element is present in arrayB
+        if (arrayB.indexOf(arrayA[i]) > -1) {
+          result.push(arrayA[i]);
+        }
+      }
+      return result;
+    });
+    return intersecting;
+  };
+
+  //difference takes in a variable number of arrays, and returns an array of the unique values of the first array, when compared to all following array arguments)
+  Array.prototype.difference = function() {
+    var args = Array.prototype.slice.call(arguments);
+
+    //we want to perform the difference operation to our invoking array as well, so prepend it.
+    args.unshift(this);
+
+    var uniqueValuesOfFirst = args.reduce(function(arrayA,arrayB){
+      var result = [];
+      for (var i = 0; i < arrayA.length; i++) {
+        //check if each element is NOT present in arrayB
+        if (arrayB.indexOf(arrayA[i]) === -1) {
+          result.push(arrayA[i]);
+        }
+      }
+      return result;
+    });
+    return uniqueValuesOfFirst;
+  };
+
+  Array.prototype.uniq = function() {
+    var unique = [];
+
+    var args = Array.prototype.slice.call(arguments);
+
+    //we want to perform the difference operation to our invoking array as well, so prepend it.
+    args.unshift(this);
+
+    var smushed = args.reduce(function(a,b) {
+      return a.concat(b);
+    });
+
+    unique = smushed.filter(function (value, index, self) { 
+      return self.indexOf(value) === index;
+    });
+
+    //at this point, sorting may be necessary (test cases do not sort unique's results)
+    return unique;
+  };
+
   Array.prototype.contains = function(target) {
     return (this.indexOf(target) > -1);
   };

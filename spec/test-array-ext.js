@@ -100,6 +100,51 @@ describe("ArrayExtensions", function() {
     });
   }); //desc min
 
+  describe("intersection", function() {
+    it("should be defined as a function", function(){
+      expect(Array.prototype.intersection).to.be.instanceof(Function);
+    });
+
+    it("should return an array of the intersecting elements in all arrays provided as input (including invoking array)", function() {
+      var result = [1,2,3].intersection([5,2,1,4], [2,1]);
+      expect( result ).to.eql( [1, 2] );
+
+      var result2 = [2, 3, 4].intersection( [5, 2, '4'] );
+      expect( result2 ).to.eql( [2] );
+    });
+  }); //desc intersection
+
+  describe("difference", function() {
+    it("should be defined as a function", function(){
+      expect(Array.prototype.difference).to.be.instanceof(Function);
+    });
+
+    it("should return an array excluding all values of the provided arrays using strict equality for comparisons", function() {
+      var result = [1, 2, 3].difference( [5, 2, 1, 4], [2, 1] );
+      expect( result ).to.eql( [3] );
+
+      var result2 = [2, 3, 4].difference( [5, 2, '4'] );
+      expect( result2 ).to.eql( [3,4] );
+    });
+  }); //desc difference
+
+  describe("uniq", function() {
+    it("should be defined as a function", function(){
+      expect(Array.prototype.uniq).to.be.instanceof(Function);
+    });
+
+    it("The uniq() function must return an array of the unique values of all arrays provided as input", function() {
+      var result = [1, 2, 3].uniq( [5, 2, 1, 4], [2, 1] );
+      expect( result ).to.eql( [1,2,3,5,4] );
+
+      var result2 =  [2, 3, 4].uniq( [5, 2, '4'] );
+      expect( result2 ).to.eql( [2,3,4,5,'4'] );
+
+      var result3 = [1, 2, 1, 3, 1].uniq();
+      expect( result3 ).to.eql( [1, 2, 3] );
+    });
+  }); //desc uniq
+
   describe("contains", function() {
     it("should be defined as a function", function(){
       expect(Array.prototype.contains).to.be.instanceof(Function);
