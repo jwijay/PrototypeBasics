@@ -133,7 +133,7 @@ describe("ArrayExtensions", function() {
       expect(Array.prototype.uniq).to.be.instanceof(Function);
     });
 
-    it("The uniq() function must return an array of the unique values of all arrays provided as input", function() {
+    it("should return an array of the unique values of all arrays provided as input", function() {
       var result = [1, 2, 3].uniq( [5, 2, 1, 4], [2, 1] );
       expect( result ).to.eql( [1,2,3,5,4] );
 
