@@ -10,4 +10,12 @@
     return result.slice(0,-2);
   };
 
+  Array.prototype.forEveryItem = function (cb) {
+    var result = [];
+    for (var i = 0; i < this.length; i++) {
+      result.push(cb(this[i]));
+    }
+    return result;
+  };
+
 })();
