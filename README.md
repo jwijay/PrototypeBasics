@@ -1,6 +1,6 @@
 ###Prototype Basics
 
-WAT THE MATH AM I LOOKING AT:
+__WAT THE MATH AM I LOOKING AT:__
 - Extensions to Javascript's Array.prototype, String.prototype, and Number.prototype.
 
 1 . Array.prototype extensions:
