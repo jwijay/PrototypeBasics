@@ -13,19 +13,33 @@ describe("StringExtensions", function() {
     });
   }); //desc wtf
 
-  // describe("forEveryItem", function () {
-  //   it("should be defined as a function", function () {
-  //     expect(String.prototype.forEveryItem).to.be.instanceof(Function);
-  //   });
+  describe("scramble", function () {
+    it("should be defined as a function", function () {
+      expect(String.prototype.scramble).to.be.instanceof(Function);
+    });
 
-  //   it("should return an array resulting from calling the input function on every element of the invoking array", function() {
-  //     var add_10 = function(elem) {return elem + 10;};
-  //     test_string = [1,2,3,4,5];
-  //     var result = test_string.forEveryItem(add_10);
+    it("should return invoking string in a mixed up order", function() {
+      var test_string = "Hello Dawg.";
+      var result = test_string.scramble();
 
-  //     expect(result).to.be.an("array");
-  //     expect(result).to.eql([11,12,13,14,15]);
-  //   });
-  // }); //desc forEveryItem
+      expect(result).to.be.a("string");
+      expect(result).to.have.length(test_string.length);
+      expect(result).to.not.equal(test_string);
+    });
+  }); //desc scramble
+
+  describe("trim", function () {
+    it("should be defined as a function", function () {
+      expect(String.prototype.trim).to.be.instanceof(Function);
+    });
+
+    it("should return invoking string with leading and trailing whitespaces removed", function() {
+      var test_string = "  Hello Dawg.  ";
+      var result = test_string.trim();
+
+      expect(result).to.be.a("string");
+      expect(result).to.equal("Hello Dawg.");
+    });
+  }); //desc trim
 
 }); //desc ArrayExtensions
