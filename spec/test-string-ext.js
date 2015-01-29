@@ -42,4 +42,18 @@ describe("StringExtensions", function() {
     });
   }); //desc trim
 
+  describe("assWord", function () {
+    it("should be defined as a function", function () {
+      expect(String.prototype.assWord).to.be.instanceof(Function);
+    });
+
+    it("should return the word as an ass word. That is all.", function() {
+      var test_string = "jackie";
+      var result = test_string.assWord();
+
+      expect(result).to.be.a("string");
+      expect(result).to.equal("(_!_) jackie");
+    });
+  }); //desc trim
+
 }); //desc ArrayExtensions

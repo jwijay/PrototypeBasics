@@ -16,4 +16,8 @@
     return this.replace(/^\s+|\s+$/g, "");
   };
 
+  String.prototype.assWord = function() {
+    return "(_!_) " + this;
+  };
+  
 })();

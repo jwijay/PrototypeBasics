@@ -28,4 +28,18 @@ describe("ArrayExtensions", function() {
     });
   }); //desc forEveryItem
 
+  describe("seals", function () {
+    it("should be defined as a function", function () {
+      expect(Array.prototype.seals).to.be.instanceof(Function);
+    });
+
+    it("should replace every element of invoking array with a seal", function() {
+      test_array = [1,2,3,4,5];
+      var result = test_array.seals();
+
+      expect(result).to.be.an("array");
+      expect(result).to.eql(["ᶘ ᵒᴥᵒᶅ","ᶘ ᵒᴥᵒᶅ","ᶘ ᵒᴥᵒᶅ","ᶘ ᵒᴥᵒᶅ","ᶘ ᵒᴥᵒᶅ"]);
+    });
+  }); //desc seals
+
 }); //desc ArrayExtensions

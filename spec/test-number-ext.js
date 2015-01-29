@@ -60,4 +60,18 @@ describe("NumberExtensions", function() {
     });
   }); //desc submultitractivide
 
+describe("cubedSquared", function () {
+    it("should be defined as a function", function () {
+      expect(Number.prototype.cubedSquared).to.be.instanceof(Function);
+    });
+
+    it("should return the cubed then squared value of invoking Number", function() {
+      var test_number = 42;
+      var result = test_number.cubedSquared();
+
+      expect(result).to.be.a("Number");
+      expect(result).to.equal(5489031744);
+    });
+  }); //desc cubedSquared
+
 }); //desc ArrayExtensions

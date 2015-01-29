@@ -34,4 +34,10 @@
     return result;
   };
 
+  //For #4 in exercise
+  Number.prototype.cubedSquared = function() {
+    return Math.pow(Math.pow(this,3),2);
+  };
+
+
 })();

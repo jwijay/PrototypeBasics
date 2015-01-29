@@ -18,4 +18,19 @@
     return result;
   };
 
+  Array.prototype.flatten = function (result) {
+    for (var i = 0; i < this.length; i++) {
+      if (Array.prototype.isArray(this[i])) {
+        result = this[i].Array.prototype.flatten(result);
+      } else {
+        result = result.concat(this[i]);
+      }
+    }
+    return result;
+  };
+
+  Array.prototype.seals = function () {
+    return this.map(function(){return "ᶘ ᵒᴥᵒᶅ";});
+  };
+
 })();
