@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mocha Chai Browser</title>
+  <link rel="stylesheet" href="./node_modules/mocha/mocha.css">
+  <script src="./node_modules/mocha/mocha.js"></script>
+  <script src="./node_modules/chai/chai.js"></script>
+  <script>
+    mocha.setup('bdd');
+    mocha.reporter('html');
+    expect = chai.expect;
+    should = chai.should();
+  </script>
+  <!-- include your js files below -->
+  <script src="./spec/main-spec.js"></script>
+  <script src="./spec/test-array-ext.js"></script>
+  <script src="./array_extensions.js"></script>
+  <!-- <script src="path/to/your/script/here"></script> -->
+</head>
+<body>
+  <div id="mocha"></div>
+  <script>
+    mocha.run();
+  </script>
+</body>
+</html>
